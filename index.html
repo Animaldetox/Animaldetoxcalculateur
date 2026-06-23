@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimalDetox - Calculateur de Toxicité</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <img src="logo.png" alt="AnimalDetox Logo" class="logo">
+                <div class="header-text">
+                    <h1>AnimalDetox</h1>
+                    <p>Calculateur de toxicité et antidotes pour animaux de compagnie</p>
+                </div>
+            </div>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="switchTab('search')">Recherche</button>
+            <button class="tab-btn" onclick="switchTab('calculator')">Calculateur</button>
+            <button class="tab-btn" onclick="switchTab('database')">Base de données</button>
+            <button class="tab-btn" onclick="switchTab('emergency')">Urgence</button>
+        </nav>
+
+        <!-- Onglet Recherche -->
+        <section id="search" class="tab-content active">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Rechercher un toxique ou un antidote..." onkeyup="searchToxics()">
+                <select id="animalFilter" onchange="searchToxics()">
+                    <option value="">Tous les animaux</option>
+                    <option value="chien">Chien</option>
+                    <option value="chat">Chat</option>
+                    <option value="lapin">Lapin</option>
+                    <option value="rongeur">Rongeur</option>
+                    <option value="oiseau">Oiseau</option>
+                </select>
+            </div>
+            <div id="searchResults" class="results-container"></div>
+        </section>
+
+        <!-- Onglet Calculateur -->
+        <section id="calculator" class="tab-content">
+            <div class="calculator-form">
+                <h2>Calculateur de dose toxique</h2>
+                <div class="form-group">
+                    <label>Animal:</label>
+                    <select id="animalSelect" onchange="updateToxicList()">
+                        <option value="">Sélectionner un animal</option>
+                        <option value="chien">Chien</option>
+                        <option value="chat">Chat</option>
+                        <option value="lapin">Lapin</option>
+                        <option value="rongeur">Rongeur</option>
+                        <option value="oiseau">Oiseau</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Toxique:</label>
+                    <select id="toxicSelect" onchange="updateCalculator()">
+                        <option value="">Sélectionner un toxique</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Poids de l'animal (kg):</label>
+                    <input type="number" id="weight" min="0.5" step="0.1" placeholder="Ex: 25" onchange="updateCalculator()">
+                </div>
+
+                <div class="form-group">
+                    <label>Dose ingérée (mg ou g):</label>
+                    <input type="number" id="dose" min="0" step="0.1" placeholder="Ex: 100" onchange="updateCalculator()">
+                    <select id="doseUnit">
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                </div>
+
+                <button onclick="calculateToxicity()" class="btn-calculate">Calculer</button>
+            </div>
+
+            <div id="calculatorResults" class="results-section"></div>
+        </section>
+
+        <!-- Onglet Base de données -->
+        <section id="database" class="tab-content">
+            <div class="db-controls">
+                <button onclick="displayAllToxics()" class="btn-primary">Afficher tous les toxiques</button>
+                <button onclick="exportData()" class="btn-secondary">Exporter en PDF</button>
+            </div>
+            <div id="databaseContent" class="db-table"></div>
+        </section>
+
+        <!-- Onglet Urgence -->
+        <section id="emergency" class="tab-content">
+            <div class="emergency-panel">
+                <h2>⚠️ Protocole d'urgence</h2>
+                <div class="emergency-steps">
+                    <div class="step">
+                        <h3>1. Premiers gestes</h3>
+                        <ul>
+                            <li>Retirer l'animal du contact du toxique</li>
+                            <li>Note: Heure et quantité ingérée si possible</li>
+                            <li>Garder l'emballage/la substance</li>
+                        </ul>
+                    </div>
+                    <div class="step">
+                        <h3>2. Appel vétérinaire</h3>
+                        <ul>
+                            <li>Contacter immédiatement votre vétérinaire</li>
+                            <li>Centre antipoison: 0540 61 22 22 (France)</li>
+                            <li>Avoir à disposition: poids de l'animal, toxique, quantité</li>
+                        </ul>
+                    </div>
+                    <div class="step">
+                        <h3>3. Mesures de base</h3>
+                        <ul>
+                            <li>Ne pas induire de vomissements sans conseil vétérinaire</li>
+                            <li>Garder l'animal au repos</li>
+                            <li>Monitorer les signes vitaux</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="emergency-contacts">
+                    <h3>Contacts d'urgence</h3>
+                    <p>🇫🇷 <strong>France:</strong> Centre Antipoison Animal: 0540 61 22 22</p>
+                    <p>🇧🇪 <strong>Belgique:</strong> Animal Poison Center: +32 2 650 40 40</p>
+                    <p>🇨🇭 <strong>Suisse:</strong> Tox Info: +41 44 251 51 51</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <img src="logo.png" alt="AnimalDetox" class="footer-logo">
+        <p>AnimalDetox © 2024 - Application éducative - En cas de doute, consultez un vétérinaire</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
