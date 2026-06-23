@@ -1,0 +1,111 @@
+<svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Définir les couleurs de la marque -->
+  <defs>
+    <style>
+      .dark-teal { fill: #1a3a3a; }
+      .sage-green { fill: #6b9b7f; }
+      .white { fill: white; }
+      .stroke-dark { stroke: #1a3a3a; stroke-width: 3; fill: none; }
+      .stroke-green { stroke: #6b9b7f; stroke-width: 3; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Cercle extérieur -->
+  <ellipse cx="250" cy="220" rx="180" ry="190" class="stroke-dark"/>
+
+  <!-- Grand V médical -->
+  <path d="M 150 150 L 250 320" class="stroke-dark" stroke-linecap="round"/>
+  <path d="M 350 150 L 250 320" class="stroke-dark" stroke-linecap="round"/>
+  <rect x="240" y="80" width="20" height="60" class="dark-teal"/>
+  <circle cx="250" cy="70" r="15" class="dark-teal"/>
+
+  <!-- Caducée (bâton médical avec serpent) -->
+  <line x1="250" y1="80" x2="250" y2="280" class="stroke-dark" stroke-width="4"/>
+  
+  <!-- Serpent enroulé autour du bâton -->
+  <path d="M 260 120 Q 280 130 270 150 Q 260 170 280 190 Q 270 210 280 230" class="stroke-green" stroke-width="18" stroke-linecap="round"/>
+  
+  <!-- Ailes du serpent -->
+  <path d="M 265 150 L 250 140" class="stroke-green" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 265 150 L 255 148" class="stroke-green" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 275 190 L 270 175" class="stroke-green" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 280 230 L 275 215" class="stroke-green" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Chien (à gauche) -->
+  <g id="dog" transform="translate(140, 240)">
+    <!-- Tête -->
+    <ellipse cx="0" cy="0" rx="25" ry="30" class="stroke-dark" stroke-width="2.5"/>
+    <!-- Museau -->
+    <ellipse cx="-5" cy="20" rx="8" ry="10" class="stroke-dark" stroke-width="2"/>
+    <!-- Oreille -->
+    <path d="M -20 -15 Q -30 -25 -25 -35 Q -15 -30 -18 -20" class="stroke-dark" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Oeil -->
+    <circle cx="-10" cy="-8" r="2" class="dark-teal"/>
+    <!-- Museau détail -->
+    <circle cx="-2" cy="25" r="1.5" class="dark-teal"/>
+  </g>
+
+  <!-- Chat (à droite) -->
+  <g id="cat" transform="translate(360, 240)">
+    <!-- Tête -->
+    <circle cx="0" cy="0" r="22" class="stroke-dark" stroke-width="2.5"/>
+    <!-- Oreilles pointues -->
+    <path d="M -15 -20 L -20 -40 L -10 -25" class="stroke-dark" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+    <path d="M 15 -20 L 20 -40 L 10 -25" class="stroke-dark" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+    <!-- Museau -->
+    <circle cx="0" cy="8" r="6" class="stroke-dark" stroke-width="2"/>
+    <!-- Yeux -->
+    <circle cx="-8" cy="-5" r="2" class="dark-teal"/>
+    <circle cx="8" cy="-5" r="2" class="dark-teal"/>
+    <!-- Moustaches -->
+    <line x1="-8" y1="6" x2="-14" y2="5" class="stroke-dark" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-8" y1="8" x2="-14" y2="8" class="stroke-dark" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="8" y1="6" x2="14" y2="5" class="stroke-dark" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="8" y1="8" x2="14" y2="8" class="stroke-dark" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Bouteille toxique (à droite) -->
+  <g id="bottle" transform="translate(340, 120)">
+    <!-- Bouchon -->
+    <rect x="-12" y="-8" width="24" height="6" class="stroke-dark" stroke-width="1.5" rx="1"/>
+    <line x1="-10" y1="-2" x2="-8" y2="-2" class="stroke-dark" stroke-width="1"/>
+    <line x1="-4" y1="-2" x2="-2" y2="-2" class="stroke-dark" stroke-width="1"/>
+    <line x1="2" y1="-2" x2="4" y2="-2" class="stroke-dark" stroke-width="1"/>
+    <line x1="8" y1="-2" x2="10" y2="-2" class="stroke-dark" stroke-width="1"/>
+    <!-- Corps de la bouteille -->
+    <path d="M -15 -2 L -18 10 Q -18 20 -12 24 L 12 24 Q 18 20 18 10 L 15 -2" class="stroke-dark" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+    <!-- Étiquette de danger -->
+    <rect x="-10" y="8" width="20" height="12" class="stroke-green" stroke-width="2" rx="2"/>
+    <!-- Crâne et os sur l'étiquette -->
+    <circle cx="0" cy="11" r="3" class="dark-teal"/>
+    <circle cx="-2" cy="9" r="1.5" class="dark-teal"/>
+    <circle cx="2" cy="9" r="1.5" class="dark-teal"/>
+    <line x1="-4" y1="15" x2="4" y2="15" class="dark-teal" stroke-width="1.5"/>
+  </g>
+
+  <!-- Feuilles (en bas à gauche) -->
+  <g id="leaves" transform="translate(200, 360)">
+    <!-- Feuille gauche -->
+    <path d="M -15 0 Q -20 -15 -15 -25 Q -10 -20 -8 -5" class="stroke-green" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Nervure -->
+    <line x1="-15" y1="0" x2="-12" y2="-20" class="stroke-green" stroke-width="1" opacity="0.5"/>
+    <!-- Feuille droite -->
+    <path d="M 15 0 Q 20 -15 15 -25 Q 10 -20 8 -5" class="stroke-green" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Nervure -->
+    <line x1="15" y1="0" x2="12" y2="-20" class="stroke-green" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <!-- Texte ANIMAL -->
+  <text x="250" y="480" font-size="48" font-weight="bold" text-anchor="middle" class="dark-teal" font-family="Arial, sans-serif">
+    ANIMAL
+  </text>
+
+  <!-- Texte DETOX -->
+  <text x="250" y="540" font-size="44" font-weight="bold" text-anchor="middle" class="sage-green" font-family="Arial, sans-serif">
+    DETOX
+  </text>
+
+  <!-- Lignes décoratives -->
+  <line x1="80" y1="510" x2="160" y2="510" class="stroke-green" stroke-width="2" stroke-linecap="round"/>
+  <line x1="340" y1="510" x2="420" y2="510" class="stroke-green" stroke-width="2" stroke-linecap="round"/>
+</svg>
